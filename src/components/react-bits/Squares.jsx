@@ -2,26 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 
-interface SquaresProps {
-    direction?: "diagonal" | "vertical" | "horizontal" | "forward" | "backward";
-    speed?: number;
-    borderColor?: string;
-    squareSize?: number;
-    hoverFillColor?: string;
-}
-
 export function Squares({
     direction = "forward",
     speed = 1,
     borderColor = "#333",
     squareSize = 40,
     hoverFillColor = "#222",
-}: SquaresProps) {
+}) {
     const [mounted, setMounted] = useState(false);
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const hoveredSquareRef = useRef<{ x: number; y: number } | null>(null);
-    const numSquaresX = useRef<number>(0);
-    const numSquaresY = useRef<number>(0);
+    const canvasRef = useRef(null);
+    const hoveredSquareRef = useRef(null);
+    const numSquaresX = useRef(0);
+    const numSquaresY = useRef(0);
     const gridOffset = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -89,7 +81,7 @@ export function Squares({
 
         const animationId = requestAnimationFrame(drawGrid);
 
-        const handleMouseMove = (event: MouseEvent) => {
+        const handleMouseMove = (event) => {
             const rect = canvas.getBoundingClientRect();
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;

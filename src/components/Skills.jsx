@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 
 // Custom SVG Icons for Tech Categories (Higher Detail for Bento)
-const CategoryIcon = ({ type, className }: { type: string, className?: string }) => {
+const CategoryIcon = ({ type, className }) => {
     switch (type.toLowerCase()) {
         case 'frontend':
             return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line></svg>;
@@ -19,7 +19,7 @@ const CategoryIcon = ({ type, className }: { type: string, className?: string })
     }
 };
 
-const getCategoryConfig = (category: string) => {
+const getCategoryConfig = (category) => {
     switch (category.toLowerCase()) {
         case 'frontend':
             return { color: 'text-cyan-400', glow: 'shadow-cyan-500/20', border: 'border-cyan-500/30', bg: 'bg-cyan-500/10', laser: 'bg-cyan-400', span: 'md:col-span-2' };

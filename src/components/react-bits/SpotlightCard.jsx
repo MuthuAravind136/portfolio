@@ -1,24 +1,18 @@
 "use client";
 
-import React, { useRef, useState, useCallback, ReactNode } from "react";
-
-interface SpotlightCardProps {
-    children: ReactNode;
-    className?: string;
-    spotlightColor?: string;
-}
+import React, { useRef, useState, useCallback } from "react";
 
 export function SpotlightCard({
     children,
     className = "",
     spotlightColor = "rgba(255, 255, 255, 0.05)",
-}: SpotlightCardProps) {
-    const containerRef = useRef<HTMLDivElement>(null);
+}) {
+    const containerRef = useRef(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
 
     const handleMouseMove = useCallback(
-        (e: React.MouseEvent<HTMLDivElement>) => {
+        (e) => {
             if (!containerRef.current) return;
 
             const rect = containerRef.current.getBoundingClientRect();

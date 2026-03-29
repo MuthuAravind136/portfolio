@@ -17,7 +17,7 @@ const ArrowRightIcon = () => (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 );
 
-const TechIcon = ({ type }: { type: 'code' | 'db' | 'layout' | 'cpu' }) => {
+const TechIcon = ({ type }) => {
     switch (type) {
         case 'code':
             return <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>;
@@ -125,7 +125,7 @@ export function Hero() {
     );
 }
 
-function TechParticle({ icon, className, delay }: { icon: React.ReactNode, className: string, delay: number }) {
+function TechParticle({ icon, className, delay }) {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -138,7 +138,7 @@ function TechParticle({ icon, className, delay }: { icon: React.ReactNode, class
     );
 }
 
-function SocialIcon({ href, icon }: { href: string, icon: React.ReactNode }) {
+function SocialIcon({ href, icon }) {
     return (
         <motion.a
             href={href}

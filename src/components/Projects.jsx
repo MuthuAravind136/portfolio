@@ -79,7 +79,7 @@ export function Projects() {
     );
 }
 
-function ProjectCard({ project, index, isFellowship, className = "" }: { project: any, index: number, isFellowship?: boolean, className?: string }) {
+function ProjectCard({ project, index, isFellowship, className = "" }) {
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

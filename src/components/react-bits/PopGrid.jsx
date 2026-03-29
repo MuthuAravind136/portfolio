@@ -3,9 +3,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 
-export const PopGrid: React.FC = () => {
+export const PopGrid = () => {
     const [mounted, setMounted] = React.useState(false);
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const canvasRef = useRef(null);
     const { theme } = useTheme();
     const mouse = useRef({ x: -1000, y: -1000 });
 
@@ -30,7 +30,7 @@ export const PopGrid: React.FC = () => {
         const rows = Math.ceil(height / spacing) + 1;
         const cols = Math.ceil(width / spacing) + 1;
 
-        let animationId: number;
+        let animationId;
 
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
@@ -72,7 +72,7 @@ export const PopGrid: React.FC = () => {
             canvas.height = height;
         };
 
-        const handleMouseMove = (e: MouseEvent) => {
+        const handleMouseMove = (e) => {
             mouse.current.x = e.clientX;
             mouse.current.y = e.clientY;
         };
@@ -86,7 +86,7 @@ export const PopGrid: React.FC = () => {
             window.removeEventListener('mousemove', handleMouseMove);
             cancelAnimationFrame(animationId);
         };
-    }, [theme]);
+    }, [theme, mounted]);
 
     return (
         <canvas
