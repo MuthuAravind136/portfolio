@@ -60,7 +60,7 @@ export function Hero() {
                         <div className="absolute inset-[3px] rounded-full bg-zinc-950 flex items-center justify-center overflow-hidden border border-white/10 p-1">
                             <div className="w-full h-full rounded-full overflow-hidden relative">
                                 <Image
-                                    src="/profile.jpg"
+                                    src="/Profile.jpg"
                                     alt={portfolioData.name}
                                     fill
                                     className="object-cover scale-105 group-hover:scale-115 transition-transform duration-700"
