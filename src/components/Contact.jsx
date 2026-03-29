@@ -23,9 +23,6 @@ export function Contact() {
         });
 
         try {
-            // FormSubmit.co AJAX version
-            // Note: This may fail locally due to CORS/Localhost restrictions by the service.
-            // IT WILL WORK PERFECTLY ONCE DEPLOYED TO VERCEL/NETLIFY/ETC.
             const response = await fetch(`https://formsubmit.co/ajax/${RECEIVER_EMAIL}`, {
                 method: "POST",
                 headers: {
@@ -35,12 +32,11 @@ export function Contact() {
                 body: JSON.stringify(data)
             });
 
-            const result = await response.json();
-
-            if (result.success === "true" || response.ok) {
+            if (response.ok) {
                 setStatus("success");
                 e.currentTarget.reset();
             } else {
+                const result = await response.json().catch(() => ({}));
                 throw new Error(result.message || "Submission failed");
             }
         } catch (err) {
