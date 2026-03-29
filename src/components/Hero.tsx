@@ -65,6 +65,7 @@ export function Hero() {
                                     fill
                                     className="object-cover scale-105 group-hover:scale-115 transition-transform duration-700"
                                     style={{ objectPosition: 'center 25%' }}
+                                    sizes="(max-width: 768px) 192px, 224px"
                                     priority
                                 />
                                 {/* Glass Shine Overlay */}

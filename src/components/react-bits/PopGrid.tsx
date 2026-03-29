@@ -4,11 +4,17 @@ import React, { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 
 export const PopGrid: React.FC = () => {
+    const [mounted, setMounted] = React.useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const { theme } = useTheme();
     const mouse = useRef({ x: -1000, y: -1000 });
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
         const canvas = canvasRef.current;
         if (!canvas) return;
 

@@ -17,13 +17,19 @@ export function Squares({
     squareSize = 40,
     hoverFillColor = "#222",
 }: SquaresProps) {
+    const [mounted, setMounted] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [hoveredSquare, setHoveredSquare] = useState<{ x: number; y: number } | null>(null);
+    const hoveredSquareRef = useRef<{ x: number; y: number } | null>(null);
     const numSquaresX = useRef<number>(0);
     const numSquaresY = useRef<number>(0);
     const gridOffset = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
@@ -53,7 +59,7 @@ export function Squares({
                     const squareX = Math.floor((x - startX) / squareSize);
                     const squareY = Math.floor((y - startY) / squareSize);
 
-                    if (hoveredSquare && hoveredSquare.x === squareX && hoveredSquare.y === squareY) {
+                    if (hoveredSquareRef.current && hoveredSquareRef.current.x === squareX && hoveredSquareRef.current.y === squareY) {
                         ctx.fillStyle = hoverFillColor;
                         ctx.fillRect(x, y, squareSize, squareSize);
                     }
@@ -94,11 +100,11 @@ export function Squares({
             const x = Math.floor((mouseX - startX) / squareSize);
             const y = Math.floor((mouseY - startY) / squareSize);
 
-            setHoveredSquare({ x, y });
+            hoveredSquareRef.current = { x, y };
         };
 
         const handleMouseLeave = () => {
-            setHoveredSquare(null);
+            hoveredSquareRef.current = null;
         };
 
         canvas.addEventListener("mousemove", handleMouseMove);
@@ -110,7 +116,7 @@ export function Squares({
             canvas.removeEventListener("mousemove", handleMouseMove);
             canvas.removeEventListener("mouseleave", handleMouseLeave);
         };
-    }, [direction, speed, borderColor, squareSize, hoverFillColor, hoveredSquare]);
+    }, [direction, speed, borderColor, squareSize, hoverFillColor, mounted]);
 
     return <canvas ref={canvasRef} className="w-full h-full border-none block" />;
 }
