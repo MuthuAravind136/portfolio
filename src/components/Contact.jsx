@@ -72,7 +72,7 @@ export function Contact() {
                 <div className="grid lg:grid-cols-5 gap-8">
                     {/* Social & Connect info - 2/5 width */}
                     <div className="lg:col-span-2 space-y-6">
-                        <div className="p-8 md:p-10 rounded-[2.5rem] bg-[#18181b]/50 backdrop-blur-xl border border-white/5 shadow-2xl h-full flex flex-col justify-between">
+                        <div className="p-6 md:p-10 rounded-[2.5rem] bg-[#18181b]/50 backdrop-blur-xl border border-white/5 shadow-2xl h-full flex flex-col justify-between">
                             <div>
                                 <h3 className="text-2xl font-black tracking-tight mb-4 uppercase">Let's <span className="text-primary">Connect</span></h3>
                                 <p className="text-muted-foreground mb-10 leading-relaxed font-medium">
@@ -115,7 +115,7 @@ export function Contact() {
 
                     {/* Contact Form - 3/5 width */}
                     <div className="lg:col-span-3">
-                        <div className="p-8 md:p-12 rounded-[2.5rem] bg-[#18181b]/50 backdrop-blur-xl border border-white/5 shadow-2xl relative overflow-hidden h-full">
+                        <div className="p-6 md:p-12 rounded-[2.5rem] bg-[#18181b]/50 backdrop-blur-xl border border-white/5 shadow-2xl relative overflow-hidden h-full">
                             <AnimatePresence mode="wait">
                                 {status === "success" ? (
                                     <motion.div

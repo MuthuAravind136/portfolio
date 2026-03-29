@@ -89,7 +89,7 @@ function ProjectCard({ project, index, isFellowship, className = "" }) {
             className={className}
         >
             <SpotlightCard className="group p-1 rounded-2xl bg-[#18181b] hover:from-primary/20 hover:to-purple-500/20 transition-all duration-500 border border-white/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 h-full">
-                <div className="p-8 h-full flex flex-col">
+                <div className="p-6 md:p-8 h-full flex flex-col">
                     <div className="flex justify-between items-start mb-6">
                         <div className="p-3 bg-primary/10 rounded-xl text-primary">
                             <Terminal size={24} />

@@ -70,7 +70,7 @@ export function Skills() {
                                     <div className={`absolute bottom-0 left-0 w-[2px] h-0 ${config.laser} group-hover:h-full transition-all duration-300 delay-300 ease-in-out`} />
                                 </div>
 
-                                <div className="relative h-full p-8 md:p-10 rounded-[2rem] bg-[#18181b]/50 backdrop-blur-xl border border-white/5 shadow-2xl overflow-hidden transition-all duration-300 group-hover:bg-[#18181b]/80 group-hover:shadow-[0_0_50px_rgba(255,255,255,0.05)]">
+                                <div className="relative h-full p-6 md:p-10 rounded-[2rem] bg-[#18181b]/50 backdrop-blur-xl border border-white/5 shadow-2xl overflow-hidden transition-all duration-300 group-hover:bg-[#18181b]/80 group-hover:shadow-[0_0_50px_rgba(255,255,255,0.05)]">
                                     {/* Holographic Watermark Icon */}
                                     <div className={`absolute -right-8 -bottom-8 opacity-[0.03] group-hover:opacity-[0.1] group-hover:scale-110 transition-all duration-500 ${config.color}`}>
                                         <CategoryIcon type={skillGroup.category} className="w-48 h-48" />

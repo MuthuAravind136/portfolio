@@ -36,8 +36,8 @@ export function Hero() {
     return (
         <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 pt-28 md:pt-20 text-center overflow-hidden font-outfit">
             {/* Ambient Background Glows */}
-            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-10 -left-20 w-72 h-72 md:w-96 md:h-96 bg-primary/10 blur-[100px] md:blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-10 -right-20 w-72 h-72 md:w-96 md:h-96 bg-purple-500/10 blur-[100px] md:blur-[120px] rounded-full pointer-events-none" />
 
             <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
                 {/* Elite Portrait Section */}
@@ -75,8 +75,8 @@ export function Hero() {
                     </div>
 
                     {/* Floating Tech Icons */}
-                    <TechParticle icon={<TechIcon type="code" />} className="top-0 -left-8 text-primary/60" delay={0.2} />
-                    <TechParticle icon={<TechIcon type="db" />} className="bottom-4 -right-8 text-purple-400/60" delay={0.5} />
+                    <TechParticle icon={<TechIcon type="code" />} className="top-0 -left-4 md:-left-8 text-primary/60" delay={0.2} />
+                    <TechParticle icon={<TechIcon type="db" />} className="bottom-4 -right-4 md:-right-8 text-purple-400/60" delay={0.5} />
                     <TechParticle icon={<TechIcon type="layout" />} className="-top-4 right-2 text-primary/50" delay={0.8} />
                 </motion.div>
 
@@ -88,7 +88,7 @@ export function Hero() {
                     className="space-y-6 w-full"
                 >
                     <div className="flex flex-col items-center">
-                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] md:leading-none">
+                        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] md:leading-none">
                             <span className="text-foreground">Hi, I'm </span>
                             <span className="whitespace-nowrap bg-gradient-to-r from-primary via-purple-400 to-primary bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(112,0,255,0.3)] bg-[length:200%_auto] animate-gradient">
                                 {portfolioData.name}
