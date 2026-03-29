@@ -44,9 +44,8 @@ export function Contact() {
                 throw new Error(result.message || "Submission failed");
             }
         } catch (err) {
-            // In local development, we show a helpful message about Deployment.
             setStatus("error");
-            setErrorMessage("Note: This often fails on 'localhost' due to security. It will work 100% once you deploy the site!");
+            setErrorMessage("Submission failed. Please try again later.");
         }
     }
 
@@ -195,14 +194,6 @@ export function Contact() {
                                             >
                                                 <AlertCircle size={14} className="flex-shrink-0" />
                                                 <span>{errorMessage}</span>
-                                                {/* Local dev bypass for visualization */}
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setStatus("success")}
-                                                    className="ml-auto underline whitespace-nowrap opacity-50 hover:opacity-100"
-                                                >
-                                                    View Animation
-                                                </button>
                                             </motion.div>
                                         )}
 
