@@ -27,8 +27,9 @@ export function Contact() {
             // Replace SHEETS_API_URL with your own endpoint
             const response = await fetch(SHEETS_API_URL, {
                 method: "POST",
+                mode: "cors",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "text/plain",
                     "Accept": "application/json"
                 },
                 body: JSON.stringify({
