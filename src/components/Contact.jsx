@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
-// CONFIGURATION: Set your receiver email here
-const RECEIVER_EMAIL = "muthuaravindngl@gmail.com";
+// CONFIGURATION: Set your Google Sheets API URL here (e.g. from SheetDB, Stein, or a Google Apps Script)
+const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbwUKumriHre2Hp6S3Boa6iAOsU6TKXDUgPhcCdhATODMzeEB058CbzHXeyEItM5lCx9fw/exec";
 
 export function Contact() {
     const [status, setStatus] = useState("idle");
@@ -23,13 +23,18 @@ export function Contact() {
         });
 
         try {
-            const response = await fetch(`https://formsubmit.co/ajax/${RECEIVER_EMAIL}`, {
+            // Google Sheets Integration
+            // Replace SHEETS_API_URL with your own endpoint
+            const response = await fetch(SHEETS_API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    ...data,
+                    timestamp: new Date().toLocaleString()
+                })
             });
 
             if (response.ok) {
@@ -97,7 +102,7 @@ export function Contact() {
                                             <div>
                                                 <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{link.platform}</p>
                                                 <p className="font-bold text-foreground break-all">
-                                                    {link.platform === "Email" ? RECEIVER_EMAIL :
+                                                    {link.platform === "Email" ? "muthuaravindngl@gmail.com" :
                                                         link.platform === "LinkedIn" ? "LinkedIn Profile" : "GitHub Profile"}
                                                 </p>
                                             </div>
