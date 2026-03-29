@@ -84,7 +84,7 @@ export function Contact() {
                                     {portfolioData.contact.socialLinks.map((link) => (
                                         <motion.a
                                             key={link.platform}
-                                            href={link.platform === "Email" ? `https://mail.google.com/mail/?view=cm&fs=1&to=${RECEIVER_EMAIL}` : link.url}
+                                            href={link.platform === "Email" ? `https://mail.google.com/mail/?view=cm&fs=1&to=muthuaravindngl@gmail.com` : link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             whileHover={{ x: 10 }}
