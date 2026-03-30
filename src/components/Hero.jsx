@@ -17,6 +17,10 @@ const ArrowRightIcon = () => (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 );
 
+const DownloadIcon = () => (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+);
+
 const TechIcon = ({ type }) => {
     switch (type) {
         case 'code':
@@ -111,6 +115,18 @@ export function Hero() {
                         >
                             <span className="relative z-10 flex items-center gap-2">
                                 View Projects <div className="group-hover:translate-x-1 transition-transform"><ArrowRightIcon /></div>
+                            </span>
+                        </motion.a>
+
+                        <motion.a
+                            href={portfolioData.resumeUrl}
+                            download="Muthu_Aravind_Resume.pdf"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="group relative px-8 py-4 bg-white/5 border border-white/10 text-foreground font-bold rounded-2xl overflow-hidden backdrop-blur-md hover:bg-white/10 hover:border-primary/30 transition-all"
+                        >
+                            <span className="relative z-10 flex items-center gap-2">
+                                Download Resume <div className="group-hover:translate-y-1 transition-transform"><DownloadIcon /></div>
                             </span>
                         </motion.a>
 

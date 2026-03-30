@@ -5,6 +5,7 @@ export const portfolioData = {
     email: "muthuaravindngl@gmail.com",
     github: "https://github.com/MuthuAravind136",
     linkedin: "https://linkedin.com/in/muthu-aravind-b-848114292",
+    resumeUrl: "/Muthu Aravind.pdf",
     about: "MERN Stack Developer with hands-on experience in building scalable and responsive web applications using React.js, Next.js, Node.js, Express.js, and MySQL. Recently completed a Full Stack Developer Fellowship (September 2025 - March 2026), gaining practical experience in real-world application development and modern development workflows.",
     skills: [
         { category: "Frontend", items: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript (ES6+)", "React.js", "Next.js"] },
