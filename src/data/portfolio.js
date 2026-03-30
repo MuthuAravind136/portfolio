@@ -5,7 +5,7 @@ export const portfolioData = {
     email: "muthuaravindngl@gmail.com",
     github: "https://github.com/MuthuAravind136",
     linkedin: "https://linkedin.com/in/muthu-aravind-b-848114292",
-    resumeUrl: "/Muthu Aravind.pdf",
+    resumeUrl: "/Muthu_Aravind_Resume.pdf",
     about: "MERN Stack Developer with hands-on experience in building scalable and responsive web applications using React.js, Next.js, Node.js, Express.js, and MySQL. Recently completed a Full Stack Developer Fellowship (September 2025 - March 2026), gaining practical experience in real-world application development and modern development workflows.",
     skills: [
         { category: "Frontend", items: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript (ES6+)", "React.js", "Next.js"] },
@@ -59,6 +59,12 @@ export const portfolioData = {
             name: "Smart Daily Task Manager",
             stack: "React.js | Node.js | Express.js | MongoDB | JWT",
             description: "Full-stack MERN task manager with JWT authentication, full CRUD, priority levels, due dates, and task completion toggle.",
+            github: "https://github.com/MuthuAravind136"
+        },
+        {
+            name: "Spotify Clone",
+            stack: "React.js | Next.js | Tailwind CSS | Framer Motion",
+            description: "Premium music streaming interface with dynamic playback controls, playlist layouts, and high-performance glassmorphism UI.",
             github: "https://github.com/MuthuAravind136"
         }
     ],
