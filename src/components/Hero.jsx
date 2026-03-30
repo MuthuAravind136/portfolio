@@ -34,7 +34,7 @@ const TechIcon = ({ type }) => {
 
 export function Hero() {
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 pt-28 md:pt-20 text-center overflow-hidden font-outfit">
+        <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 pt-36 md:pt-36 text-center overflow-hidden font-outfit">
             {/* Ambient Background Glows */}
             <div className="absolute top-10 -left-20 w-72 h-72 md:w-96 md:h-96 bg-primary/10 blur-[100px] md:blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute bottom-10 -right-20 w-72 h-72 md:w-96 md:h-96 bg-purple-500/10 blur-[100px] md:blur-[120px] rounded-full pointer-events-none" />
@@ -63,8 +63,8 @@ export function Hero() {
                                     src="/Profile.jpg"
                                     alt={portfolioData.name}
                                     fill
-                                    className="object-cover scale-105 group-hover:scale-115 transition-transform duration-700"
-                                    style={{ objectPosition: 'center 25%' }}
+                                    className="object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
+                                    style={{ objectPosition: 'center 40%' }}
                                     sizes="(max-width: 768px) 192px, 224px"
                                     priority
                                 />

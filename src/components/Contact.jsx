@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, Send, CheckCircle2, AlertCircle, X } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 // CONFIGURATION: Set your Google Sheets API URL here (e.g. from SheetDB, Stein, or a Google Apps Script)
-const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbwUKumriHre2Hp6S3Boa6iAOsU6TKXDUgPhcCdhATODMzeEB058CbzHXeyEItM5lCx9fw/exec";
+const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbxLFTGgpuSPZKKXbJH5LYBzh3BKJqjw1yZp51P7QK1KCjoVwtvYou4YvbIx5fHsCxBh4A/exec";
 
 export function Contact() {
     const [status, setStatus] = useState("idle");
@@ -14,40 +14,50 @@ export function Contact() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        const form = e.currentTarget;
         setStatus("loading");
 
-        const formData = new FormData(e.currentTarget);
+        const formData = new FormData(form);
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value.toString();
         });
 
         try {
-            // Google Sheets Integration
-            // Replace SHEETS_API_URL with your own endpoint
+            console.log("Attempting to send data to:", SHEETS_API_URL);
             const response = await fetch(SHEETS_API_URL, {
                 method: "POST",
                 mode: "cors",
                 headers: {
                     "Content-Type": "text/plain",
-                    "Accept": "application/json"
                 },
                 body: JSON.stringify({
-                    ...data,
+                    name: data.name,
+                    email: data.email,
+                    message: data.message,
                     timestamp: new Date().toLocaleString()
                 })
             });
 
+            console.log("Response status:", response.status);
+
             if (response.ok) {
+                const result = await response.json().catch(() => ({ result: "success" }));
+                console.log("Response result:", result);
+
+                if (result.result === "error") {
+                    throw new Error(result.message || "Script execution failed");
+                }
+
                 setStatus("success");
-                e.currentTarget.reset();
+                form.reset();
             } else {
-                const result = await response.json().catch(() => ({}));
-                throw new Error(result.message || "Submission failed");
+                throw new Error(`Server responded with status: ${response.status}`);
             }
         } catch (err) {
+            console.error("Submission error:", err);
             setStatus("error");
-            setErrorMessage("Submission failed. Please try again later.");
+            setErrorMessage(err.message || "Submission failed. Please try again later.");
         }
     }
 
@@ -128,6 +138,15 @@ export function Contact() {
                                         <div className="w-20 h-20 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mb-6 shadow-xl shadow-emerald-500/10">
                                             <CheckCircle2 size={40} />
                                         </div>
+
+                                        <button
+                                            onClick={() => setStatus("idle")}
+                                            className="absolute top-4 right-4 p-2 text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-full transition-all"
+                                            aria-label="Close success message"
+                                        >
+                                            <X size={20} />
+                                        </button>
+
                                         <h3 className="text-3xl font-black mb-4 uppercase tracking-tighter">Message Sent!</h3>
                                         <p className="text-muted-foreground max-w-sm font-medium leading-relaxed">
                                             Thank you for reaching out. I've received your message and will get back to you within 24 hours.
