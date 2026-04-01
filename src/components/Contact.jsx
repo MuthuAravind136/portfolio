@@ -114,7 +114,7 @@ export function Contact() {
                                                 <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{link.platform}</p>
                                                 <p className="font-bold text-foreground break-all">
                                                     {link.platform === "Email" ? "muthuaravindngl@gmail.com" :
-                                                        link.platform === "LinkedIn" ? "LinkedIn Profile" : "GitHub Profile"}
+                                                        link.platform === "LinkedIn" ? "LinkedIn" : "GitHub"}
                                                 </p>
                                             </div>
                                         </motion.a>
@@ -166,9 +166,7 @@ export function Contact() {
                                         exit={{ opacity: 0 }}
                                         className="space-y-6"
                                     >
-                                        <input type="hidden" name="_subject" value="New Portfolio Message!" />
-                                        <input type="hidden" name="_template" value="table" />
-                                        <input type="hidden" name="_captcha" value="false" />
+
 
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
@@ -178,8 +176,7 @@ export function Contact() {
                                                     name="name"
                                                     required
                                                     disabled={status === "loading"}
-                                                    placeholder="John Doe"
-                                                    className="w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all font-medium placeholder:text-white/10 text-foreground"
+                                                    className="w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all font-medium text-foreground"
                                                 />
                                             </div>
                                             <div className="space-y-2">
@@ -189,8 +186,7 @@ export function Contact() {
                                                     name="email"
                                                     required
                                                     disabled={status === "loading"}
-                                                    placeholder="john@example.com"
-                                                    className="w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all font-medium placeholder:text-white/10 text-foreground"
+                                                    className="w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all font-medium text-foreground"
                                                 />
                                             </div>
                                         </div>
@@ -202,8 +198,7 @@ export function Contact() {
                                                 required
                                                 rows={5}
                                                 disabled={status === "loading"}
-                                                placeholder="Briefly describe your project or inquiry..."
-                                                className="w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all font-medium placeholder:text-white/10 resize-none text-foreground"
+                                                className="w-full p-5 rounded-2xl bg-white/[0.03] border border-white/5 outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all font-medium resize-none text-foreground"
                                             ></textarea>
                                         </div>
 
