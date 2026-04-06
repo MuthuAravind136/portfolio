@@ -16,7 +16,6 @@ export default function Home() {
             <Contact />
             <footer className="py-12 border-t text-center text-muted-foreground text-sm font-medium">
                 <p>© {new Date().getFullYear()} Muthu Aravind. All rights reserved.</p>
-                <p className="mt-2 tracking-widest uppercase opacity-50 text-[10px]">Built with Next.js & Tailwind CSS</p>
             </footer>
         </main>
     );
